@@ -1,4 +1,4 @@
-# WordMaster Pro
+# WordMaster Pro Chrome Extension
 
 A fast, modern word & character counter for writers and SEO specialists with 20+ advanced metrics, context-menu integration, and beautiful blue-gradient UI.
 
@@ -74,4 +74,5 @@ npm install
 npm run build
 
 # Build for development with watch mode
+
 npm run dev
