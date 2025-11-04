@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordMaster Pro - Analyze Text</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">WordMaster Pro</h1>
+            <p class="subtitle">Analyze Text</p>
+        </header>
+
+        <div class="text-preview">
+            <textarea id="textInput" placeholder="Paste text here or use 'Analyze Selected Text' from right-click context menu..." rows="4"></textarea>
+            <div class="preview-actions">
+                <button id="clearText" class="btn-secondary1" aria-label="Clear text">Clear</button>
+                <button id="analyzeText" class="btn-primary" aria-label="Analyze text">Analyze</button>
+            </div>
+        </div>
+
+        <div class="metrics-grid">
+            <!-- Core Metrics -->
+            <div class="metric-card">
+                <div class="metric-icon">🔤</div>
+                <div class="metric-content">
+                    <span class="metric-label">Words</span>
+                    <span id="wordCount" class="metric-value">0</span>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">⏱️</div>
+                <div class="metric-content">
+                    <span class="metric-label">Characters</span>
+                    <span id="charCount" class="metric-value">0</span>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📝</div>
+                <div class="metric-content">
+                    <span class="metric-label">Chars (no spaces)</span>
+                    <span id="charNoSpacesCount" class="metric-value">0</span>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📖</div>
+                <div class="metric-content">
+                    <span class="metric-label">Read Time</span>
+                    <span id="readTime" class="metric-value">0s</span>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🎤</div>
+                <div class="metric-content">
+                    <span class="metric-label">Speaking Time</span>
+                    <span id="speakingTime" class="metric-value">0s</span>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📄</div>
+                <div class="metric-content">
+                    <span class="metric-label">Pages</span>
+                    <span id="pagesCount" class="metric-value">0</span>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🔠</div>
+                <div class="metric-content">
+                    <span class="metric-label">Sentences</span>
+                    <span id="sentenceCount" class="metric-value">0</span>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📋</div>
+                <div class="metric-content">
+                    <span class="metric-label">Paragraphs</span>
+                    <span id="paragraphCount" class="metric-value">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="advanced-section">
+            <div class="section-header">
+                <h2>Advanced Metrics</h2>
+                <button id="toggleAdvanced" class="btn-toggle" aria-expanded="false">
+                    <span class="toggle-icon">▼</span>
+                </button>
+            </div>
+            
+            <div id="advancedContent" class="advanced-content hidden">
+                <div class="advanced-grid">
+                    <div class="metric-card">
+                        <span class="metric-label">Avg Word Length</span>
+                        <span id="avgWordLength" class="metric-value">0</span>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <span class="metric-label">Avg Sentence Length</span>
+                        <span id="avgSentenceLength" class="metric-value">0</span>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <span class="metric-label">Long Words (≥7)</span>
+                        <span id="longWordsCount" class="metric-value">0</span>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <span class="metric-label">Flesch Reading Ease</span>
+                        <span id="fleschReadingEase" class="metric-value">0</span>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <span class="metric-label">Flesch-Kincaid Grade</span>
+                        <span id="fleschKincaidGrade" class="metric-value">0</span>
+                    </div>
+                </div>
+
+                <!-- Keyword Analysis -->
+                <div class="keyword-section">
+                    <h3>Keyword Analysis</h3>
+                    <div class="keyword-input-group">
+                        <input type="text" id="keywordInput" placeholder="Enter keywords (comma separated)" aria-label="Keywords to analyze">
+                        <button id="analyzeKeywords" class="btn-primary">Analyze</button>
+                    </div>
+                    <div id="keywordResults" class="keyword-results"></div>
+                </div>
+
+                <!-- Top Keywords -->
+                <div class="top-keywords-section">
+                    <h3>Top Keywords</h3>
+                    <div id="topKeywords" class="top-keywords"></div>
+                </div>
+
+                <!-- Long Words List -->
+                <div class="long-words-section">
+                    <h3>Long Words</h3>
+                    <div id="longWordsList" class="long-words-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="copyReport" class="btn-secondary">Copy Report</button>
+            <button id="exportCSV" class="btn-secondary">Export CSV</button>
+            <button id="openOptions" class="btn-secondary">Options</button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
